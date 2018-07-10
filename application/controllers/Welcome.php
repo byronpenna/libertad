@@ -24,8 +24,12 @@ class Welcome extends CI_Controller {
 	}
 	public function buscar()
 	{
+		$this->load->model("controles/ControlArticulo");
+		$control = new ControlArticulo();
 		$retorno = new stdClass();
 		$retorno->estado = true;
+		$retorno->resultado = $control->buscar("agua");
+
 		echo json_encode($retorno);
 	}
 }
