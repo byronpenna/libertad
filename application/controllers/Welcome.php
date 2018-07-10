@@ -22,4 +22,10 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view("Welcome/index.php");
 	}
+	public function buscar()
+	{
+		$retorno = new stdClass();
+		$retorno->estado = true;
+		echo json_encode($retorno);
+	}
 }

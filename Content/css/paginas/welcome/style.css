@@ -1,0 +1,23 @@
+body{
+	
+}
+.divBuscador{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 3%;
+
+}
+.imgBuscador{
+	width: 	80%;
+	margin: 0 auto;
+}
+.btnBuscador{
+	margin-top: 3%;
+}
+.divBuscador h3{
+
+	font-size: 3em;
+	font-weight: bold;	
+	color: white;
+}
