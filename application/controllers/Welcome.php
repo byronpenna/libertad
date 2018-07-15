@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Welcome extends CI_Controller {
+include_once(APPPATH.'controllers/PadreController.php'); 
+class Welcome extends PadreController {
 
 	/**
 	 * Index Page for this controller.
@@ -20,15 +20,24 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view("Welcome/index.php");
+		$this->load->model("controles/ControlArticulo");
+		$control 	= new ControlArticulo();
+		$articulos 	= $control->obtenerUltimas();
+		$data 		= array(
+			'articulos' => $articulos
+		);
+		$this->load->view("Welcome/index.php",$data);
 	}
+
 	public function buscar()
 	{
 		$this->load->model("controles/ControlArticulo");
+		$frm = $this->getAjaxFrm($_POST["form"]);
+		//print_r($frm);
 		$control = new ControlArticulo();
 		$retorno = new stdClass();
 		$retorno->estado = true;
-		$retorno->resultado = $control->buscar("agua");
+		$retorno->resultado = $control->buscar($frm->textoBusqueda);
 
 		echo json_encode($retorno);
 	}

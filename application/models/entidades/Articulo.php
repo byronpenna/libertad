@@ -11,6 +11,7 @@ class Articulo extends CI_Model
 			public $_idArticulo;
 			public $_titulo;
 			public $_articulo;
+			public $_breveDescripcion;
 			public $_categoria;
 			public $_rutaImg;
 	public function llenarByRow($row)
@@ -18,9 +19,29 @@ class Articulo extends CI_Model
 		$articulo = null;
 		try {
 			$articulo = new Articulo();
-			$articulo->_idArticulo	= $row->idArticulo;
+			$articulo->_idArticulo			= $row->idArticulo;
+			$articulo->_titulo 				= $row->titulo;
+			$articulo->_breveDescripcion 	= $row->breveDescripcion;
+			$articulo->_articulo 			= $row->articulo;
+
 		} catch (Exception $e) {
 			$articulo = null;
+		}
+		return $articulo;
+	}
+	public function buscar($id){
+		$articulo = null;
+		try {
+			$sql 		= "call sp_Articulo_buscar ('".$id."')";
+			$query 		= $this->db->query($sql);
+			foreach ($query->result() as $key => $row) {
+				$articulo = new Articulo();
+				$articulo = $articulo->llenarByRow($row);
+			}
+			$query->next_result();
+			$query->free_result();
+		} catch (Exception $e) {
+			return $e;
 		}
 		return $articulo;
 	}

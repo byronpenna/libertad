@@ -43,7 +43,8 @@
             this.frm            = frm;
         // funciones
             this.peticion           = function (callback,before,errorF) {
-            	$.ajax({
+            	
+                $.ajax({
                     url: url,
                     type: this.method,
                     error: function (xhr, status, error) {
@@ -52,7 +53,6 @@
                         }
                     },
                     data: {
-                        
                         form: JSON.stringify(this.frm)
                     },
                     beforeSend: function () {

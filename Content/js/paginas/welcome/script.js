@@ -7,12 +7,28 @@ $(document).ready(function(){
 		buscar(frm,function(data){
 			//console
 			console.log("La data devuelta es",data);
-			/*var obj = jQuery.parseJSON(data);
+			var obj = jQuery.parseJSON(data);
 			if (obj.estado){
-				console.log(data);
-				console.log(obj);
-				tr.remove();
-			}*/
+				$(".divContenidoArticulo").empty();
+				var divArticulos = "";
+				$.each(obj.resultado,function(i,articulo){
+					console.log("Entro aca",articulo);
+					divArticulos += "\
+					   	<div class='col-lg-4'>\
+							<a href='"+$(".txtHdSiteUrl").val()+"/ArticuloController/detalle/"+articulo._idArticulo+"'>\
+								<div class='row marginNull articulo'>\
+									<h3>"+articulo._titulo+" </h3>\
+									<img src='"+$(".txtHdBaseUrl").val()+"Content/img/articulos/"+articulo._idArticulo+"/min.jpg'  >\
+									<div class='contenidoArticulo'>\
+										"+articulo._breveDescripcion+"\
+									</div>\
+								</div>\
+							</a>\
+						</div>\
+					";
+				});
+				$(".divContenidoArticulo").append(divArticulos);
+			}
 		})
 	})
 })

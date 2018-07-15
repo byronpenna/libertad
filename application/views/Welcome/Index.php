@@ -10,6 +10,9 @@
 </head>
 <body>
 	<input type="hidden" class="txtHdBuscar" value=<?php echo site_url("welcome/buscar") ?> >
+	<input type="hidden" class="txtHdBaseUrl" value=<?php echo base_url() ?> >
+	<input type="hidden" class="txtHdSiteUrl" value=<?php echo site_url() ?>  >
+	
 	<div class="divBuscador row">
 		<div class="row">
 			<div class="col-lg-offset-3 col-lg-6">
@@ -22,9 +25,62 @@
 			</div>
 		</div>
 		
+		<div class="row divContenidoArticulo">
+			<?php 
+				foreach ($articulos as $key => $articulo) {
+			?>
+				<div class="col-lg-4">
+					
+					<a href=<?php echo site_url("/ArticuloController/detalle/".$articulo->_idArticulo) ?> >
+						<div class="row marginNull articulo">
+							<h3 class="tituloH3Articulo"><?php echo $articulo->_titulo ?> </h3>
+							<img src=<?php echo base_url("Content/img/articulos/".$articulo->_idArticulo."/min.jpg") ?>  >
+							<div class="contenidoArticulo">
+								<?php
+								echo $articulo->_breveDescripcion;
+								?>
+							</div>
+						</div>
+					</a>
+				</div>
+			<?php 
+				}
+			?>
+			<!-- <div class="col-lg-4">
+				<a href="#">
+					<div class="row marginNull articulo">
+						<h3>Ley del agua </h3>
+						<img src=<?php echo base_url("Content/img/articulos/1/min.jpg") ?>  >
+						<div class="contenidoArticulo">
+							Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí".
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-4">
+				<div class="row marginNull articulo">
+					<h3>Ley del agua </h3>
+					<img src=<?php echo base_url("Content/img/articulos/2/min.jpg") ?>  >
+					<div class="contenidoArticulo">
+						Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí".
+					</div>
+				</div>
+			</div> -->
+			<div class="col-lg-4">
+				
+			</div>
+		</div>
+		
 		
 	</div>
-	
+	<footer class="row marginNull" >
+		<div class="footer">
+			Movimiento libertad todos los derechos reservados
+			<br>
+			Powered by Ritsa
+		</div>
+		
+	</footer>
 	<?php
 		$this->load->view("parts/scripts.php");
 	?>
