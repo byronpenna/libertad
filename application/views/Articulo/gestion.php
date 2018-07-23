@@ -13,11 +13,12 @@
 			//print_r($articulos);
 		?>
 	</pre>
-	<input type="hidden" name="txtHdCambiarEstado" value=<?php echo site_url("ArticuloController/cambiarEstado") ?> >
+	<input type="hidden" name="txtHdCambiarEstado" class="txtHdCambiarEstado" value=<?php echo site_url("ArticuloController/cambiarEstado") ?> >
 	<div class="col-lg-offset-2 col-lg-8">
 		<table class="table ">
 			<thead>
 				<tr>
+					<th class="hidden">Oculto</th>
 					<th>Titulo</th>
 					<th>Breve descripción</th>
 					<th>Estado</th>
@@ -29,6 +30,9 @@
 				foreach ($articulos as $key => $articulo) {
 				?>
 					<tr>
+						<td class="hidden">
+							<input type="hidden" class="txtHdIdArticulo" name="txtHdIdArticulo" value=<?php echo $articulo->_idArticulo ?> >
+						</td>
 						<td>
 							<?php echo $articulo->_titulo ?>
 						</td>
@@ -52,7 +56,7 @@
 	<?php
 		$this->load->view("parts/scripts.php");
 	?>	
-	<script type="text/javascript" src=<?php echo base_url("content/js/paginas/articulo/agregar/script.js") ?>></script>
-	<script type="text/javascript" src=<?php echo base_url("content/js/paginas/articulo/agregar/function.js") ?>></script>
+	<script type="text/javascript" src=<?php echo base_url("content/js/paginas/articulo/gestion/script.js") ?>></script>
+	<script type="text/javascript" src=<?php echo base_url("content/js/paginas/articulo/gestion/funciones.js") ?>></script>
 </body>
 </html>

@@ -35,14 +35,19 @@ class ControlArticulo extends CI_Model
 		}
 		return $retorno;
 	}
-	public function cambiarEstado(){
+	public function cambiarEstado($idArticulo){
+		$retorno = true;
 		try{
-			$sql 		= "call sp_controlArticulo_listarParaEdicion()";
+			$sql 		= "call sp_controlArticulo_cambiarEstado(".$idArticulo.")";
 			$query 		= $this->db->query($sql);
+			$row = $query->row();
+			if($row->estado <> 0){
+				$retorno = false;
+			}
 		}catch (Exception  $e) {
-			return $e;
+			$retorno = false;
 		}
-		return $articulos;
+		return $retorno;
 	}
 	public function listarParaEdicion()
 	{
