@@ -12,8 +12,9 @@ class Articulo extends CI_Model
 			public $_titulo;
 			public $_articulo;
 			public $_breveDescripcion;
-			public $_categoria;
+			public $_categoria; //objeto
 			public $_rutaImg;
+			public $_publicado;
 	public function llenarByRow($row)
 	{		
 		$articulo = null;
@@ -22,7 +23,13 @@ class Articulo extends CI_Model
 			$articulo->_idArticulo			= $row->idArticulo;
 			$articulo->_titulo 				= $row->titulo;
 			$articulo->_breveDescripcion 	= $row->breveDescripcion;
-			$articulo->_articulo 			= $row->articulo;
+			if (isset($row->articulo)){
+				$articulo->_articulo 			= $row->articulo;
+			}
+			if (isset($row->publicado)){
+				$articulo->_publicado 			= $row->publicado;
+			}
+			
 
 		} catch (Exception $e) {
 			$articulo = null;

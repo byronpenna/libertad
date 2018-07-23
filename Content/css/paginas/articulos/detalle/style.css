@@ -1,4 +1,9 @@
-
+.tituloNoticia{
+	background: #3498db;
+	color: white;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
 .divCuerpoNoticia .titulo{
 	text-align: center;
 }
