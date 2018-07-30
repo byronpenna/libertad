@@ -7,7 +7,7 @@
 	?> 
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 	
-	<link rel="stylesheet" type="text/css" href=<?php echo base_url("content/css/paginas/articulos/detalle/style.css") ?> >
+	<link rel="stylesheet" type="text/css" href=<?php echo base_url("Content/css/paginas/articulos/detalle/style.css") ?> >
 </head>
 <body>
 	<pre>
@@ -58,8 +58,8 @@
 		$this->load->view("parts/scripts.php");
 	?>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
-	<script type="text/javascript" src=<?php echo base_url("content/js/paginas/articulo/agregar/script.js") ?>></script>
-	<script type="text/javascript" src=<?php echo base_url("content/js/paginas/articulo/agregar/function.js") ?>></script>
+	<script type="text/javascript" src=<?php echo base_url("Content/js/paginas/articulo/agregar/script.js") ?>></script>
+	<script type="text/javascript" src=<?php echo base_url("Content/js/paginas/articulo/agregar/function.js") ?>></script>
 	
 </body>
 </html>

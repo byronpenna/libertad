@@ -5,7 +5,7 @@
 	<?php
 		$this->load->view("parts/head.php");
 	?> 
-	<link rel="stylesheet" type="text/css" href=<?php echo base_url("content/css/paginas/articulos/gestion/style.css") ?> >
+	<link rel="stylesheet" type="text/css" href=<?php echo base_url("Content/css/paginas/articulos/gestion/style.css") ?> >
 </head>
 <body>
 	<pre>
@@ -56,7 +56,7 @@
 	<?php
 		$this->load->view("parts/scripts.php");
 	?>	
-	<script type="text/javascript" src=<?php echo base_url("content/js/paginas/articulo/gestion/script.js") ?>></script>
-	<script type="text/javascript" src=<?php echo base_url("content/js/paginas/articulo/gestion/funciones.js") ?>></script>
+	<script type="text/javascript" src=<?php echo base_url("Content/js/paginas/articulo/gestion/script.js") ?>></script>
+	<script type="text/javascript" src=<?php echo base_url("Content/js/paginas/articulo/gestion/funciones.js") ?>></script>
 </body>
 </html>
