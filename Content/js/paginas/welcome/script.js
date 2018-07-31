@@ -13,8 +13,8 @@ $(document).ready(function(){
 				var divArticulos = "";
 				$.each(obj.resultado,function(i,articulo){
 					console.log("Entro aca",articulo);
-					var img = $(".txtHdBaseUrl").val()+"Content/img/articulos/"+articulo._idArticulo+"/min.jpg";
-					//var img = $(".txtHdBaseUrl").val()+"Content/img/generales/noImagenArticulo.png";
+					//var img = $(".txtHdBaseUrl").val()+"Content/img/articulos/"+articulo._idArticulo+"/min.jpg";
+					var img = $(".txtHdBaseUrl").val()+"Content/img/generales/noImagenArticulo.png";
 					divArticulos += "\
 					   	<div class='col-lg-4'>\
 							<a href='"+$(".txtHdSiteUrl").val()+"/ArticuloController/detalle/"+articulo._idArticulo+"'>\

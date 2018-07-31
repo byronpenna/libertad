@@ -28,13 +28,24 @@
 		<div class="row divContenidoArticulo">
 			<?php 
 				foreach ($articulos as $key => $articulo) {
+					$ruta = base_url("Content/img/articulos/".$articulo->_idArticulo."/min.jpg");
+					$rutaExist = FCPATH."Content/img/articulos/".$articulo->_idArticulo."/min.jpg";
+					if (file_exists($rutaExist)){
+						//echo "Existe";
+						$img = $ruta;
+					}else{
+						//echo "<br>".$rutaExist."<br>";
+						//echo "<br>no existe<br>".$ruta;
+						$img = base_url("Content/img/generales/noImagenArticulo.png");
+					}
+					
 			?>
 				<div class="col-lg-4">
 					
 					<a href=<?php echo site_url("/ArticuloController/detalle/".$articulo->_idArticulo) ?> >
 						<div class="row marginNull articulo">
 							<h3 class="tituloH3Articulo"><?php echo $articulo->_titulo ?> </h3>
-							<img src=<?php echo base_url("Content/img/articulos/".$articulo->_idArticulo."/min.jpg") ?>  >
+							<img src=<?php echo $img; ?>  >
 							<div class="contenidoArticulo">
 								<?php
 								echo $articulo->_breveDescripcion;
