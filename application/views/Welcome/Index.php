@@ -17,7 +17,7 @@
 		<div class="row">
 			<div class="col-lg-offset-3 col-lg-6">
 				<h3></h3>	
-				<img class="imgBuscador" src=<?php echo base_url("Content/img/generales/logo.png") ?>>
+				<img class="imgBuscador" src=<?php echo base_url("Content/img/generales/logo.jpg") ?>>
 				<div class="divBusqueda ">
 					<input class="form-control txtBuscar" placeholder="Buscar articulos">
 					<button class="btn btnBuscador" >Buscar</button>
