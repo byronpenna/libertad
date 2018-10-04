@@ -18,6 +18,15 @@ class Welcome extends PadreController {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function test(){
+		$this->load->model("controles/ControlArticulo");
+		$control 	= new ControlArticulo();
+		$articulos 	= $control->obtenerUltimas();
+		$data 		= array(
+			'articulos' => $articulos
+		);
+		$this->load->view("Welcome/index.php",$data);
+	}
 	public function index()
 	{
 		$this->load->model("controles/ControlArticulo");
