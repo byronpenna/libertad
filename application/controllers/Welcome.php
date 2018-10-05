@@ -37,7 +37,13 @@ class Welcome extends PadreController {
 		);
 		$this->load->view("Welcome/construccion.php",$data);
 	}
-
+	public function login(){
+		$data = array();
+		$this->load->view("Welcome/login.php",$data);
+	}
+	public function AccesoLogin(){
+		
+	}
 	public function buscar()
 	{
 		$this->load->model("controles/ControlArticulo");

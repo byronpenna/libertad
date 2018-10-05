@@ -130,3 +130,13 @@ h6 {
 	right: 0;
 	left: 0;
 }*/
+
+.botonIngresar{
+	border-radius: 0;
+	width: 30%;
+	padding-top: 1%;
+	color: black;
+	font-weight: bold;
+	padding-bottom:1%;
+	background: #f5f6fa;
+}

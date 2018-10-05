@@ -17,6 +17,9 @@
 		</div>	
 	</div>
 	<div class="contenedorNota3">
+		<a class="botonIngresar btn" href=<?php echo site_url("Welcome/login"); ?> >
+			Ingresar
+		</a> 
 		
 	</div>
 	<footer class="fixed-bottom pieDePagina" >
