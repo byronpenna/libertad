@@ -18,6 +18,27 @@ class Welcome extends PadreController {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	// variables 
+		private $_model;
+	// metodos magicos
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('form');
+		$this->load->library('session');	
+	}
+	// privados
+		private function getUserFromPostLogin(){
+			$usuario = new Usuario();
+			$usuario->setUsuario($_POST['Username']);
+			$usuario->setPass($_POST['Password']);
+			return $usuario;
+		}
+	// publicos 
+	public function logout(){
+		$_SESSION = null;
+		session_destroy();
+		redirect('/Welcome/index', 'refresh');
+	}
 	public function test(){
 		$this->load->model("controles/ControlArticulo");
 		$control 	= new ControlArticulo();
@@ -42,7 +63,17 @@ class Welcome extends PadreController {
 		$this->load->view("Welcome/login.php",$data);
 	}
 	public function AccesoLogin(){
-		
+		$this->load->model("acciones/PantallaUsuario");
+		$pantalla = new PantallaUsuario();				
+		$usuario = $this->getUserFromPostLogin();
+		$roles = array(); // array de roles del usuario;
+		$logueado = $pantalla->login($usuario,$roles);
+		if ($logueado){
+			$this->session->set_userdata('usuario',$usuario);
+			redirect('/Welcome/test', 'refresh');
+		}else{
+			redirect('/Welcome/index', 'refresh');
+		}
 	}
 	public function buscar()
 	{
