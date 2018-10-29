@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static">
+<nav class="navBarMenu navbar navbar-default navbar-static">
     <div class="navbar-header">
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
 			<span class="sr-only">Toggle navigation</span>
@@ -7,8 +7,9 @@
 			<span class="icon-bar"></span>
 		</button>
 		<a class="navbar-brand textoLogoMenu" href="#">
+			<img src=<?php echo base_url("Content/img/generales/logo_pequeno.png") ?> >
 			
-			Ajedrez politico
+			
 		</a>
 	</div>
 	
@@ -16,11 +17,15 @@
 	<div class="collapse navbar-collapse js-navbar-collapse barraMenu">
 		<ul class="nav navbar-nav">
 			<li>
-				<a href="#" class="dropdown-toggle textoBarraMenu" data-toggle="dropdown">Inicio</a>
+				<a class="dropdown-toggle textoBarraMenu" href=<?php echo site_url("welcome/test") ?> >
+				Inicio
+				</a>
 
 			</li>
 			<li>
-				<a href="#" class="dropdown-toggle textoBarraMenu" data-toggle="dropdown">Sobre nosotros</a>
+				<a  class="dropdown-toggle textoBarraMenu" href=<?php echo site_url("Enroque/index") ?> >
+					Enroque
+				</a>
 			</li>
 			
 			<li class="dropdown dropdown-large">
@@ -55,10 +60,13 @@
 				</ul>
 			</li>
 			<li>
-				<a href="#" class="dropdown-toggle textoBarraMenu" data-toggle="dropdown">JAQUE</a>
+				<a class="dropdown-toggle textoBarraMenu" href=<?php echo site_url("Jaque/index") ?> >
+					JAQUE
+				</a>
 			</li>
 			<li>
-				<a href="#" class="dropdown-toggle textoBarraMenu" data-toggle="dropdown">Contactanos</a>
+				<a <?php echo "href='".site_url("Reina/index")."' " ?> 
+				class="dropdown-toggle textoBarraMenu">La reina</a>
 			</li>
 		</ul>
 		

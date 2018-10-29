@@ -4,8 +4,8 @@ class ControlUsuario extends CI_Model
 	
 	function __construct()
 	{
-		$this->load->model("Entidades/accesos/Rol");
-		$this->load->model("Entidades/accesos/RolUsuario");
+		$this->load->model("entidades/accesos/Rol");
+		$this->load->model("entidades/accesos/RolUsuario");
 	}
 	public function listarUsuarios(){
 		try {
