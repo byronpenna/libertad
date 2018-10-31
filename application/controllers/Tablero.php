@@ -8,6 +8,6 @@ class Tablero extends PadreController
 	}
 	 function index(){
 		$data = array();
-		$this->load->view("Tablero/index.php",$data);
+		$this->load->view("Tablero/Index.php",$data);
 	}
 }

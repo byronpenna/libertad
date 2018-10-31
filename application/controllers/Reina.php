@@ -9,6 +9,6 @@ class Reina extends PadreController
 	}
 	function index(){
 		$data = array();
-		$this->load->view("Reina/index.php",$data);
+		$this->load->view("Reina/Index.php",$data);
 	}
 }
