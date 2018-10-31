@@ -27,7 +27,12 @@
 					Enroque
 				</a>
 			</li>
-			
+			<li>
+				<a  class="dropdown-toggle textoBarraMenu" href=<?php echo site_url("Tablero/index") ?> >
+					Tablero
+				</a>
+			</li>
+			<!--
 			<li class="dropdown dropdown-large">
 				<a href="#" class="dropdown-toggle textoBarraMenu" data-toggle="dropdown">Tablero <b class="caret"></b></a>
 				<ul class="dropdown-menu dropdown-menu-large row">
@@ -58,7 +63,7 @@
 						</ul>
 					</li>
 				</ul>
-			</li>
+			</li>-->
 			<li>
 				<a class="dropdown-toggle textoBarraMenu" href=<?php echo site_url("Jaque/index") ?> >
 					JAQUE

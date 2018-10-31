@@ -6,7 +6,6 @@
 		$this->load->view("parts/head.php");
 	?>
 	<link rel="stylesheet" type="text/css" href=<?php echo base_url("Content/css/paginas/reina/style.css") ?> >
-
 </head>
 <body>
 	<?php 

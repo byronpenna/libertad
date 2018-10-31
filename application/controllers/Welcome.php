@@ -56,7 +56,7 @@ class Welcome extends PadreController {
 		$data 		= array(
 			'articulos' => $articulos
 		);
-		$this->load->view("Welcome/construccion.php",$data);
+		$this->load->view("Welcome/Index.php",$data);
 	}
 	public function login(){
 		$data = array();
