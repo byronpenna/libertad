@@ -5,9 +5,16 @@ class Tablero extends PadreController
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->helper('form');
+		$this->load->library('session');	
+		$this->load->model("controles/ControlArticulo");
 	}
-	 function index(){
-		$data = array();
+
+	function index(){
+		$control = new ControlArticulo();
+		$articulos = $control->obtenerUltimas();
+		$data = array(
+			'articulos' => $articulos );
 		$this->load->view("Tablero/Index.php",$data);
 	}
 }

@@ -12,33 +12,51 @@
 		$this->load->view("parts/header.php");
 	?>
 	<video width="100%" autoplay class="videoBanner" loop>
-  		<source  type="video/mp4" src=<?php echo base_url("Content/videos/Reina/index/baner.mp4") ?>>
+  		<source  type="video/mp4" src=<?php echo base_url("Content/videos/Tablero/index/baner.mp4") ?>>
 	  	<!-- <source src="movie.ogg" type="video/ogg">-->
 		Your browser does not support the video tag.
 	</video>
-	<div class="marginNull noticias">
-		<div class="row container">
-			<div class="col-lg-4">
-				<div class="container row noticia">
-					<img class="imgPrincipal" src=<?php echo base_url("Content/img/tablero/noticias/1/fondo.png") ?> >	
-					<div class="cuerpoNoticia">
-						Este es el texto de encima					
-					</div>
-				</div>	
-				
+	<div class="contenidoCuerpo">
+		<div class="navegacion">
+			<h2>Navegación</h2>
+			<div class="row container parametroBusqueda">
+				Categorias
 			</div>
-			<div class="col-lg-4">
-				<div class="container row noticia">
-
-					<img class="imgPrincipal" src=<?php echo base_url("Content/img/tablero/noticias/1/fondo.png") ?> >	
-				</div>	
-				
-			</div>
-			<div class="col-lg-4">
-				Noticia 3
+			<div class="row container parametroBusqueda">
+				Hashtags
 			</div>
 		</div>
-		
+		<div class="noticias">
+			<div >
+				<?php 
+					if(isset($articulos)){
+						foreach ($articulos as $key => $articulo) {
+				?>
+					<div class="col-lg-6">
+						<div class="container row noticia">
+							<img class='imgNoticia' src=<?php echo base_url("Content/img/tablero/noticias/".$articulo->_idArticulo."/fondo.png") ?> >
+							<h4 class="tituloNoticia">
+								<?php 
+									echo $articulo->_titulo;
+								?>
+							</h4>
+							<div class="contenido">
+								<?php 
+									echo $articulo->_breveDescripcion;
+								?>
+							</div>
+							<div class="footerNoticia">
+
+							</div>	
+						</div>	
+					</div>
+				<?php 
+						}
+					}
+				?>
+			</div>
+			
+		</div>
 	</div>
 	<?php 
 		$this->load->view("parts/footer.php");
