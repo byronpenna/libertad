@@ -5,6 +5,11 @@
 	<?php
 		$this->load->view("parts/head.php");
 	?>
+	<meta property="og:url"           content="https://www.ajedrezpolitico.net" />
+  	<meta property="og:type"          content="website" />
+  	<meta property="og:title"         content="Tablero" />
+  	<meta property="og:description"   content="Pagina a compartir" />
+  	<meta property="og:image"         content="" />
 	<link rel="stylesheet" type="text/css" href=<?php echo base_url("Content/css/paginas/tablero/index/style.css") ?> >
 </head>
 <body>
@@ -21,20 +26,112 @@
 			<h2>Navegación</h2>
 			<div class="row container parametroBusqueda">
 				Categorias
+				
+			</div>
+			<div class="contenedorContenidoParametro" estado='0'>
+				<div class="contenidoParametro" style="display: none">
+					Politica
+				</div>
+				<div class="contenidoParametro" style="display: none">
+					Social
+				</div>	
 			</div>
 			<div class="row container parametroBusqueda">
 				Hashtags
 			</div>
+			<div class="contenedorContenidoParametro" estado='0'>
+				<div class="contenidoParametro" style="display: none">
+					#AguaNoSeVende
+				</div>
+				<div class="contenidoParametro" style="display: none">
+					#FunesRegresa
+				</div>	
+			</div>
 		</div>
+
 		<div class="noticias">
-			<div >
+			<div class="buscadorNoticias">
+				<div class="col-lg-6">
+					<!-- Buscador bootsnip -->
+					<div class="paddingNull col-lg-10">
+					<input type="text" class="form-control" placeholder="Busca tu articulo favorito" />
+	                </div>
+	                <div class="paddingNull col-lg-2">
+	                	<div class="input-group-btn">
+	                    <div class="btn-group" role="group">
+	                        <div class="dropdown dropdown-lg">
+	                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+	                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+	                                <form class="form-horizontal" role="form">
+	                                  <div class="form-group">
+	                                    <label for="filter">Filter by</label>
+	                                    <select class="form-control">
+	                                        <option value="0" selected>All Snippets</option>
+	                                        <option value="1">Featured</option>
+	                                        <option value="2">Most popular</option>
+	                                        <option value="3">Top rated</option>
+	                                        <option value="4">Most commented</option>
+	                                    </select>
+	                                  </div>
+	                                  <div class="form-group">
+	                                    <label for="contain">Author</label>
+	                                    <input class="form-control" type="text" />
+	                                  </div>
+	                                  <div class="form-group">
+	                                    <label for="contain">Contains the words</label>
+	                                    <input class="form-control" type="text" />
+	                                  </div>
+	                                  <button type="submit" class="btn btn-primary btnBuscarTablero">
+	                                  		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+	                                  	</button>
+	                                </form>
+	                            </div>
+	                        </div>
+		                        <button type="button" class="btn btn-primary btnBuscarTablero">
+		                        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		                        </button>
+		                    </div>
+		                </div>
+		            </div>
+					<!-- ################# -->
+				</div>
+			</div>	
+			<div>
 				<?php 
 					if(isset($articulos)){
 						foreach ($articulos as $key => $articulo) {
 				?>
 					<div class="col-lg-6">
 						<div class="container row noticia">
-							<img class='imgNoticia' src=<?php echo base_url("Content/img/tablero/noticias/".$articulo->_idArticulo."/fondo.png") ?> >
+							<div class="contenidoImg">
+								<div class="textoDestacadoNoticia" style="display: none">
+									Vamos a respetar el estado laico
+								</div>
+								<div class="cobertorNoticia" style="display: none">
+										
+								</div>
+								<div class="redesCompartir">
+									<div class="iconosCompartir">
+										<a href="#" class="aSocial">
+											<i class="colorWA fab fa-whatsapp"></i>
+										</a>
+										<a href="#" class="aSocial">
+											<i class="colorFB fab fa-facebook"></i>	
+										</a>
+										<a href="#" class="aSocial">
+											<i class="colorIG fab fa-instagram"></i>	
+										</a>
+										
+									</div>
+									<div class="textoCompartir">
+										
+									</div>
+									
+
+								</div>
+								<img class='imgNoticia' src=<?php echo base_url("Content/img/tablero/noticias/".$articulo->_idArticulo."/fondo.png") ?> >	
+							</div>
+							
 							<h4 class="tituloNoticia">
 								<?php 
 									echo $articulo->_titulo;
@@ -54,17 +151,30 @@
 						}
 					}
 				?>
+				</div>
 			</div>
-			
 		</div>
 	</div>
+	<!--<div class="fb-share-button" 
+	    data-href="https://www.ajedrezpolitico.net" 
+	    data-layout="button_count">
+	  </div>-->
 	<?php 
 		$this->load->view("parts/footer.php");
 	?>
 	<?php
 		$this->load->view("parts/scripts.php");
 	?>
-	<script type="text/javascript" src=<?php echo base_url("Content/js/paginas/reina/index/funciones.js") ?>></script>
-	<script type="text/javascript" src=<?php echo base_url("Content/js/paginas/reina/index/script.js") ?>></script>
+	<script type="text/javascript" src=<?php echo base_url("Content/js/paginas/tablero/index/funciones.js") ?>></script>
+	<script type="text/javascript" src=<?php echo base_url("Content/js/paginas/tablero/index/script.js") ?>></script>
+	<!-- Load Facebook SDK for JavaScript -->
+	  <div id="fb-root"></div>
+	  <script>(function(d, s, id) {
+	    var js, fjs = d.getElementsByTagName(s)[0];
+	    if (d.getElementById(id)) return;
+	    js = d.createElement(s); js.id = id;
+	    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+	    fjs.parentNode.insertBefore(js, fjs);
+	  }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
