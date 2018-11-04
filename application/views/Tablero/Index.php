@@ -21,6 +21,7 @@
 	  	<!-- <source src="movie.ogg" type="video/ogg">-->
 		Your browser does not support the video tag.
 	</video>
+	<input type="text" class="txtHdBuscar" value=<?php echo site_url("Tablero/buscar") ?> >
 	<div class="contenidoCuerpo">
 		<div class="navegacion">
 			<?php 
@@ -34,7 +35,7 @@
 				<div class="col-lg-6">
 					<!-- Buscador bootsnip -->
 					<div class="paddingNull col-lg-10">
-					<input type="text" class="form-control" placeholder="Busca tu articulo favorito" />
+					<input type="text" class="form-control txtBuscar" placeholder="Busca tu articulo favorito" />
 	                </div>
 	                <div class="paddingNull col-lg-2">
 	                	<div class="input-group-btn">

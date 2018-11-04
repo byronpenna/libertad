@@ -1,11 +1,35 @@
 $(document).ready(function(){
 	$(document).on("click",".btnBuscarTablero",function(e){
 		e.preventDefault();
-		alert("Busqueda tablero");
+		var frm = {
+			textoBusqueda: $(".txtBuscar").val()
+		};
+		buscar(frm,function(data){
+			var obj = jQuery.parseJSON(data);
+			console.log("La data devuelta es",obj);
+			if (obj.estado){
+				var divArticulos = "";
+				$(".contenidoVariasNoticia").empty();
+				$.each(obj.resultado,function(i,articulo){
+					var img = $(".txtHdBaseUrl").val()+"Content/img/tablero/noticias/"+articulo._idArticulo+"/fondo.png";
+					$.get(img)
+					.done(function() { 
+						divArticulos += obtenerDivNoticia(articulo,img);	
+						$(".contenidoVariasNoticia").append(divArticulos);
+					}).fail(function() { 
+						img = $(".txtHdBaseUrl").val()+"Content/img/generales/noImagenArticulo.png";
+						divArticulos += obtenerDivNoticia(articulo,img);	
+						$(".contenidoVariasNoticia").append(divArticulos);
+					});
+					
+				});
+
+			}
+		})
 	})
 	$(document).on("click",".noticia",function(e){
 		var idNoticia = $(this).find(".txtHdIdNoticia").val();
-		
+
 		window.location.replace($(".txtHdUrlPrincipal").val()+"/Tablero/detalle/"+idNoticia);
 	});
 	$(document).on("click",".parametroBusqueda",function(){

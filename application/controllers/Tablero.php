@@ -18,6 +18,7 @@ class Tablero extends PadreController
 			'articulos' => $articulos );
 		$this->load->view("Tablero/Index.php",$data);
 	}
+
 	function detalle($id){
 		$this->load->model("entidades/Articulo");
 		$articulo = new Articulo();
@@ -26,5 +27,17 @@ class Tablero extends PadreController
 			"articulo" => $articulo
 		);
 		$this->load->view("Tablero/Detalle.php",$data);	
+	}
+	/*Internos*/
+	public function buscar()
+	{
+		$this->load->model("controles/ControlArticulo");
+		$frm = $this->getAjaxFrm($_POST["form"]);
+		$control = new ControlArticulo();
+		$retorno = new stdClass();
+		$retorno->estado = true;
+		$retorno->resultado = $control->buscar($frm->textoBusqueda);
+
+		echo json_encode($retorno);
 	}
 }
