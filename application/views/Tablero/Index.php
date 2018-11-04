@@ -23,33 +23,13 @@
 	</video>
 	<div class="contenidoCuerpo">
 		<div class="navegacion">
-			<h2>Navegación</h2>
-			<div class="row container parametroBusqueda">
-				Categorias
-				
-			</div>
-			<div class="contenedorContenidoParametro" estado='0'>
-				<div class="contenidoParametro" style="display: none">
-					Politica
-				</div>
-				<div class="contenidoParametro" style="display: none">
-					Social
-				</div>	
-			</div>
-			<div class="row container parametroBusqueda">
-				Hashtags
-			</div>
-			<div class="contenedorContenidoParametro" estado='0'>
-				<div class="contenidoParametro" style="display: none">
-					#AguaNoSeVende
-				</div>
-				<div class="contenidoParametro" style="display: none">
-					#FunesRegresa
-				</div>	
-			</div>
+			<?php 
+				$this->load->view("parts/componentes/navegacion.php");
+			?>
 		</div>
 
 		<div class="noticias">
+
 			<div class="buscadorNoticias">
 				<div class="col-lg-6">
 					<!-- Buscador bootsnip -->
@@ -96,61 +76,76 @@
 					<!-- ################# -->
 				</div>
 			</div>	
-			<div>
+			
+			<div class="row contenidoVariasNoticia">
 				<?php 
 					if(isset($articulos)){
 						foreach ($articulos as $key => $articulo) {
 				?>
 					<div class="col-lg-6">
-						<div class="container row noticia">
-							<div class="contenidoImg">
-								<div class="textoDestacadoNoticia" style="display: none">
-									Vamos a respetar el estado laico
-								</div>
-								<div class="cobertorNoticia" style="display: none">
-										
-								</div>
-								<div class="redesCompartir">
-									<div class="iconosCompartir">
-										<a href="#" class="aSocial">
-											<i class="colorWA fab fa-whatsapp"></i>
-										</a>
-										<a href="#" class="aSocial">
-											<i class="colorFB fab fa-facebook"></i>	
-										</a>
-										<a href="#" class="aSocial">
-											<i class="colorIG fab fa-instagram"></i>	
-										</a>
-										
+							<div class="container row noticia">
+								<input type="hidden" class="txtHdIdNoticia" value=<?php echo $articulo->_idArticulo ?>>
+								<div class="contenidoImg">
+									<div class="textoDestacadoNoticia" style="display: none">
+										Vamos a respetar el estado laico
 									</div>
-									<div class="textoCompartir">
-										
+									<div class="cobertorNoticia" style="display: none">
+											
 									</div>
-									
+									<div class="redesCompartir">
+										<div class="iconosCompartir">
+											<a href="#" class="aSocial">
+												<i class="colorWA fab fa-whatsapp"></i>
+											</a>
+											<a href="#" class="aSocial">
+												<i class="colorFB fab fa-facebook"></i>	
+											</a>
+											<a href="#" class="aSocial">
+												<i class="colorIG fab fa-instagram"></i>	
+											</a>
+											
+										</div>
+										<div class="textoCompartir">
+											
+										</div>
+										
 
+									</div>
+									<img class='imgNoticia' src=<?php echo base_url("Content/img/tablero/noticias/".$articulo->_idArticulo."/fondo.png") ?> >	
 								</div>
-								<img class='imgNoticia' src=<?php echo base_url("Content/img/tablero/noticias/".$articulo->_idArticulo."/fondo.png") ?> >	
-							</div>
-							
-							<h4 class="tituloNoticia">
-								<?php 
-									echo $articulo->_titulo;
-								?>
-							</h4>
-							<div class="contenido">
-								<?php 
-									echo $articulo->_breveDescripcion;
-								?>
-							</div>
-							<div class="footerNoticia">
+								
+								<h4 class="tituloNoticia">
+									<?php 
+										echo $articulo->_titulo;
+									?>
+								</h4>
+								<div class="contenido">
+									<?php 
+										echo $articulo->_breveDescripcion;
+									?>
+								</div>
+								<div class="footerNoticia">
 
+								</div>	
 							</div>	
-						</div>	
+						
 					</div>
 				<?php 
 						}
 					}
 				?>
+				</div>
+				<div class="divAnucioNoticia" style="background: red;height: 20px;">
+					<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<ins class="adsbygoogle"
+					     style="display:block"
+					     data-ad-format="fluid"
+					     data-ad-layout-key="-fb+5w+4e-db+86"
+					     data-ad-client="ca-pub-7161297069626668"
+					     data-ad-slot="6946410631"></ins>
+					<script>
+					     (adsbygoogle = window.adsbygoogle || []).push({});
+					</script>-->
 				</div>
 			</div>
 		</div>

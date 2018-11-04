@@ -1,4 +1,5 @@
 <?php 
+
 include_once(APPPATH.'controllers/PadreController.php'); 
 class Tablero extends PadreController
 {
@@ -16,5 +17,14 @@ class Tablero extends PadreController
 		$data = array(
 			'articulos' => $articulos );
 		$this->load->view("Tablero/Index.php",$data);
+	}
+	function detalle($id){
+		$this->load->model("entidades/Articulo");
+		$articulo = new Articulo();
+		$articulo = $articulo->buscar($id);
+		$data = array(
+			"articulo" => $articulo
+		);
+		$this->load->view("Tablero/Detalle.php",$data);	
 	}
 }

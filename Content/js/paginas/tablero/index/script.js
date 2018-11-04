@@ -3,6 +3,11 @@ $(document).ready(function(){
 		e.preventDefault();
 		alert("Busqueda tablero");
 	})
+	$(document).on("click",".noticia",function(e){
+		var idNoticia = $(this).find(".txtHdIdNoticia").val();
+		
+		window.location.replace($(".txtHdUrlPrincipal").val()+"/Tablero/detalle/"+idNoticia);
+	});
 	$(document).on("click",".parametroBusqueda",function(){
 		//$(".contenidoParametro").hide();
 		var contenedor = $(this).next();

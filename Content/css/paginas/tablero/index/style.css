@@ -1,7 +1,7 @@
 .noticia{
-	
 	width: 100%;
 	margin-bottom: 1%;
+	cursor: pointer;
 }
 .imgPrincipal{
 	width: 100%;
@@ -12,14 +12,7 @@
 body{
 	background: #ecf0f1;
 }
-.navegacion{
-	width: 15%;
-	display: inline-block;
-	vertical-align: top;
-	
-	padding-left: 1%;
-	padding-bottom: 2%;
-}
+
 .contenidoImg{
 	position: relative;
 }
@@ -59,6 +52,15 @@ body{
 	opacity: 0.5;
 	background: black;
 }
+/*Navegacion*/
+.navegacion{
+	width: 15%;
+	display: inline-block;
+	vertical-align: top;
+	
+	padding-left: 1%;
+	padding-bottom: 2%;
+}
 .parametroBusqueda,.contenidoParametro{
 	width: 80%;
 	margin-left: auto;
@@ -83,6 +85,8 @@ body{
 	display: inline-block;
 	padding-top: 2%;
 }
+/***/
+
 .imgNoticia{
 	width: 100%;
 }
@@ -112,4 +116,11 @@ body{
 }
 .buscadorNoticias{
 	margin-bottom: 3%;
+}
+
+.divAnucioNoticia{
+	width: 100%;
+}
+.contenidoNoticia{
+	display: inline-block;
 }
