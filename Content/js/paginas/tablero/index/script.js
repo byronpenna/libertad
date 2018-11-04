@@ -4,28 +4,55 @@ $(document).ready(function(){
 		var frm = {
 			textoBusqueda: $(".txtBuscar").val()
 		};
-		buscar(frm,function(data){
-			var obj = jQuery.parseJSON(data);
-			console.log("La data devuelta es",obj);
-			if (obj.estado){
-				var divArticulos = "";
-				$(".contenidoVariasNoticia").empty();
-				$.each(obj.resultado,function(i,articulo){
-					var img = $(".txtHdBaseUrl").val()+"Content/img/tablero/noticias/"+articulo._idArticulo+"/fondo.png";
-					$.get(img)
-					.done(function() { 
-						divArticulos += obtenerDivNoticia(articulo,img);	
-						$(".contenidoVariasNoticia").append(divArticulos);
-					}).fail(function() { 
-						img = $(".txtHdBaseUrl").val()+"Content/img/generales/noImagenArticulo.png";
-						divArticulos += obtenerDivNoticia(articulo,img);	
-						$(".contenidoVariasNoticia").append(divArticulos);
+		if(frm.textoBusqueda !=""){
+			buscar(frm,function(data){
+				var obj = jQuery.parseJSON(data);
+				console.log("La data devuelta es",obj);
+				if (obj.estado){
+					var divArticulos = "";
+					$(".contenidoVariasNoticia").empty();
+					$.each(obj.resultado,function(i,articulo){
+						var img = $(".txtHdBaseUrl").val()+"Content/img/tablero/noticias/"+articulo._idArticulo+"/fondo.png";
+						$.get(img)
+						.done(function() { 
+							divArticulos = obtenerDivNoticia(articulo,img);	
+							$(".contenidoVariasNoticia").append(divArticulos);
+						}).fail(function() { 
+							img = $(".txtHdBaseUrl").val()+"Content/img/generales/noImagenArticulo.png";
+							divArticulos = obtenerDivNoticia(articulo,img);	
+							$(".contenidoVariasNoticia").append(divArticulos);
+						});
+						
 					});
-					
-				});
 
-			}
-		})
+				}
+			})
+		}else{
+			console.log("VA VACIO");
+			var url = $(".txtHdBuscarTodo").val();	
+			var peticion = new PeticionAjax(url,frm,"POST");
+			peticion.peticion(function(data){
+				var obj = jQuery.parseJSON(data);
+				console.log("La data devuelta es",obj);
+				if (obj.estado){
+					var divArticulos = "";
+					$(".contenidoVariasNoticia").empty();
+					$.each(obj.resultado,function(i,articulo){
+						var img = $(".txtHdBaseUrl").val()+"Content/img/tablero/noticias/"+articulo._idArticulo+"/fondo.png";
+						$.get(img)
+						.done(function() { 
+							divArticulos = obtenerDivNoticia(articulo,img);	
+							$(".contenidoVariasNoticia").append(divArticulos);
+						}).fail(function() { 
+							img = $(".txtHdBaseUrl").val()+"Content/img/generales/noImagenArticulo.png";
+							divArticulos = obtenerDivNoticia(articulo,img);	
+							$(".contenidoVariasNoticia").append(divArticulos);
+						});
+					})
+				}
+			});	
+		}
+		
 	})
 	$(document).on("click",".noticia",function(e){
 		var idNoticia = $(this).find(".txtHdIdNoticia").val();

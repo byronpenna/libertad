@@ -1,3 +1,6 @@
+function buscarOriginales(){
+	
+}
 function buscar(frm,callback){
 	var url = $(".txtHdBuscar").val();	
 	//console.log("Frm es",frm);

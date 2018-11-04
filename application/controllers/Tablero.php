@@ -37,7 +37,15 @@ class Tablero extends PadreController
 		$retorno = new stdClass();
 		$retorno->estado = true;
 		$retorno->resultado = $control->buscar($frm->textoBusqueda);
-
 		echo json_encode($retorno);
+	}
+	public function ajax_obtenerUltimas(){
+		$control = new ControlArticulo();
+		$articulos = $control->obtenerUltimas();
+		$retorno = new stdClass();
+		$retorno->estado = true;
+		$retorno->resultado = $control->obtenerUltimas();
+		echo json_encode($retorno);
+		
 	}
 }
