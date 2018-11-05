@@ -21,8 +21,8 @@
 	  	<!-- <source src="movie.ogg" type="video/ogg">-->
 		Your browser does not support the video tag.
 	</video>
-	<input type="text" class="txtHdBuscar" value=<?php echo site_url("Tablero/buscar") ?> >
-	<input type="text" class="txtHdBuscarTodo" value=<?php echo site_url("Tablero/ajax_obtenerUltimas") ?> >
+	<input type="hidden" class="txtHdBuscar" value=<?php echo site_url("Tablero/buscar") ?> >
+	<input type="hidden" class="txtHdBuscarTodo" value=<?php echo site_url("Tablero/ajax_obtenerUltimas") ?> >
 	<div class="contenidoCuerpo">
 		<div class="navegacion">
 			<?php 
