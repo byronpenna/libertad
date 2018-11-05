@@ -140,10 +140,27 @@
   background: #736E69;
   padding-top: 1%;
   padding-bottom: 1%;
-  position: fixed;
+  /*position: fixed;*/
   bottom: 0;
   width: 100%;
-  text-align: center;
+  color: white;
+}
+.tituloMediosSocialesFooter{
+  margin-top: 1%;
+}
+#myCarousel{
+  margin-bottom: 5%;
+}
+.iconoRedSocial{
+  text-align: right;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.linkRedSocialFooter,.linkRedSocialFooter:visited{
   color: white;
 }
 .colorWA{
