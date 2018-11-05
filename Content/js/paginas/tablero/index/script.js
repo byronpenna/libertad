@@ -10,6 +10,7 @@ $(document).ready(function(){
 				console.log("La data devuelta es",obj);
 				if (obj.estado){
 					var divArticulos = "";
+					
 					$(".contenidoVariasNoticia").empty();
 					$.each(obj.resultado,function(i,articulo){
 						var img = $(".txtHdBaseUrl").val()+"Content/img/tablero/noticias/"+articulo._idArticulo+"/fondo.png";
@@ -24,7 +25,7 @@ $(document).ready(function(){
 						});
 						
 					});
-
+					
 				}
 			})
 		}else{

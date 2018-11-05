@@ -9,6 +9,6 @@ class Jaque extends PadreController
 	}
 	function index(){
 		$data = array();
-		$this->load->view("Jaque/Index.php",$data);
+		$this->load->view("Jaque/index.php",$data);
 	}
 }

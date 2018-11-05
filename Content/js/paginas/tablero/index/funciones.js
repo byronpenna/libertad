@@ -13,7 +13,7 @@ function obtenerDivNoticia(articulo,img){
 	div = "\
 	<div class='col-lg-6'>\
 		<div class='container row noticia'>\
-			<input type='hidden' class='txtHdIdNoticia' value=''>\
+			<input type='hidden' class='txtHdIdNoticia' value='"+articulo._idArticulo+"'>\
 			<div class='contenidoImg'>\
 				<div class='textoDestacadoNoticia' style='display: none'>\
 					Vamos a respetar el estado laico\

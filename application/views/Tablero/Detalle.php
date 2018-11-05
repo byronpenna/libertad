@@ -51,7 +51,7 @@
 					 ?>
 				</div>
 				<div class="row container comentariosNoticia">
-					<h2>Comentarios noticia></h2>
+					<h2>Comentarios noticia</h2>
 				</div>
 			</div>
 			
